@@ -1,0 +1,49 @@
+# Профиль по умолчанию: ноутбук (прототип).
+# Для платы: QUEUE_CONFIG=config.luckfox.yaml
+
+app:
+  host: 0.0.0.0
+  python_port: 8081
+  name: "Электронная очередь"
+
+camera:
+  # auto    — сначала браузер (ноутбук), OpenCV если задан device
+  # browser — снимок из веб-интерфейса (встроенная камера ноутбука)
+  # opencv  — любая камера OpenCV: встроенная, USB, /dev/videoN
+  # v4l2    — Linux V4L2 (USB или CSI SC3336 на Luckfox)
+  backend: browser
+  device: "0"
+  width: 640
+  height: 480
+  fps: 15
+
+display:
+  # web          — киоск в браузере (сенсорный экран и мышь)
+  # framebuffer  — ILI9431 через /dev/fb0
+  # both         — веб + попытка открыть framebuffer, если есть
+  backend: web
+  fb_device: /dev/fb0
+  fb_width: 320
+  fb_height: 240
+  touch_device: /dev/input/event0
+
+recognition:
+  match_threshold: 0.78
+  min_face_size: 60
+
+catalog:
+  - id: coffee
+    name: Кофе
+    price: 150
+  - id: tea
+    name: Чай
+    price: 100
+  - id: croissant
+    name: Круассан
+    price: 120
+  - id: sandwich
+    name: Сэндвич
+    price: 220
+  - id: water
+    name: Вода
+    price: 80

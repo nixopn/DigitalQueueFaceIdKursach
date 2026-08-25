@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Терминал очереди</title>
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="wrap grid two">
+    <section class="card">
+      <h2>Камера</h2>
+      <p class="muted" id="camHint">Встроенная камера ноутбука через браузер. USB-камера появится в списке устройств.</p>
+      <div class="row" style="margin-bottom:10px">
+        <select id="source">
+          <option value="browser">Камера браузера (ноутбук / USB)</option>
+          <option value="device">Камера терминала (OpenCV / V4L2 / CSI)</option>
+        </select>
+        <select id="devices"></select>
+        <button id="enableCam" class="secondary" type="button">Включить камеру</button>
+      </div>
+      <video id="video" autoplay playsinline muted></video>
+      <img class="preview" id="shot" hidden alt="кадр распознавания" />
+      <div class="big-actions" style="margin-top:12px">
+        <button id="recognize">Распознавание</button>
+        <button id="preorder" class="secondary">Предзаказ</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Результат</h2>
+      <div id="result" class="flash">Нажмите «Распознавание» или соберите предзаказ.</div>
+      <p class="ticket" id="ticket">—</p>
+      <p class="muted" id="meta"></p>
+      <div id="catalogWrap" hidden>
+        <h3>Каталог</h3>
+        <div class="catalog" id="catalog"></div>
+        <div class="row" style="margin-top:12px">
+          <button id="saveCart" class="ok">Подтвердить предзаказ</button>
+          <button id="clearCart" class="secondary">Очистить</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/js/kiosk.js"></script>
+</body>
+</html>

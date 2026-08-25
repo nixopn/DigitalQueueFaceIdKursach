@@ -1,0 +1,33 @@
+/dts-v1/;
+/plugin/;
+
+/*
+ * Пример фрагментов Device Tree для Luckfox.
+ * Не применяется на ноутбуке. Подключается при сборке ядра платы.
+ *
+ * Камера SC3336: MIPI CSI + I2C (не SPI).
+ * Дисплей ILI9431: SPI + framebuffer, сенсор — I2C/SPI evdev.
+ */
+
+&csi {
+	status = "okay";
+};
+
+&i2c1 {
+	status = "okay";
+	sc3336: camera@30 {
+		compatible = "smartsens,sc3336";
+		reg = <0x30>;
+		status = "okay";
+	};
+};
+
+&spi1 {
+	status = "okay";
+	display@0 {
+		compatible = "ilitek,ili9341";
+		reg = <0>;
+		spi-max-frequency = <32000000>;
+		status = "okay";
+	};
+};

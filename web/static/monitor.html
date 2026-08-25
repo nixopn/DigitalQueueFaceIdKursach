@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Монитор очереди</title>
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="wrap">
+    <section class="card">
+      <h2>Живая очередь</h2>
+      <p class="muted" id="updated"></p>
+      <table>
+        <thead>
+          <tr><th>№</th><th>Клиент</th><th>Статус</th><th>Заказ</th><th>Время</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+  </main>
+  <script type="module" src="/js/monitor.js"></script>
+</body>
+</html>

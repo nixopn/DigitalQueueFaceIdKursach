@@ -1,0 +1,41 @@
+# Целевая плата Luckfox: CSI SC3336 + SPI ILI9431.
+
+app:
+  host: 0.0.0.0
+  python_port: 8081
+  name: "Электронная очередь"
+
+camera:
+  backend: v4l2
+  device: /dev/video0
+  width: 640
+  height: 480
+  fps: 15
+
+display:
+  backend: both
+  fb_device: /dev/fb0
+  fb_width: 320
+  fb_height: 240
+  touch_device: /dev/input/event0
+
+recognition:
+  match_threshold: 0.78
+  min_face_size: 80
+
+catalog:
+  - id: coffee
+    name: Кофе
+    price: 150
+  - id: tea
+    name: Чай
+    price: 100
+  - id: croissant
+    name: Круассан
+    price: 120
+  - id: sandwich
+    name: Сэндвич
+    price: 220
+  - id: water
+    name: Вода
+    price: 80

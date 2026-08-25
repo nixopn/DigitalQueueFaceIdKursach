@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Администрирование</title>
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="wrap grid two">
+    <section class="card">
+      <h2>Управление очередью</h2>
+      <div id="list"></div>
+      <div class="row" style="margin-top:12px">
+        <button id="reset" class="bad">Сбросить очередь</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Оборудование</h2>
+      <pre class="hw" id="hw"></pre>
+      <h3>Камера терминала</h3>
+      <p class="muted">Для ноутбука оставьте браузер. Для USB/CSI укажите opencv или v4l2 и устройство.</p>
+      <div class="row">
+        <select id="backend">
+          <option value="browser">browser — киоск / встроенная камера</option>
+          <option value="opencv">opencv — индекс или /dev/videoN</option>
+          <option value="v4l2">v4l2 — USB или CSI SC3336</option>
+        </select>
+        <input id="device" placeholder="0 или /dev/video0" />
+        <button id="applyCam">Применить</button>
+      </div>
+      <p class="muted" style="margin-top:12px">Сенсорный дисплей: киоск в браузере работает с любой тач-панелью. На Luckfox framebuffer <code>/dev/fb0</code> и evdev подключаются, когда устройства есть в системе.</p>
+    </section>
+  </main>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>
